@@ -1,12 +1,14 @@
 import './style.css';
 
-function Header(){
+function Header({links}){
     return(
             <div className="header-wrapper">
                 <header className="header">
-                    <a href="" className="link">Первая ссылка</a>
-                    <a href="" className="link">Вторая ссылка ссылка</a>
-                    <a href="" className="link">Третья ссылка ссылка ссылка</a>
+                    {
+                        links.map((links) => {
+                            return   <a key={links.href} href={links.href} className="link">{links.title}</a>
+                        })
+                    }
                 </header>
             </div>
     );
